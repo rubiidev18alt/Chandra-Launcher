@@ -6,6 +6,7 @@ import com.kdt.mcgui.ProgressLayout;
 
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.modloaders.FabriclikeUtils;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.Constants;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.ModDetail;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.ModItem;
@@ -125,8 +126,19 @@ public class ModrinthApi implements ModpackApi{
         if((modLoaderVersion = dependencies.get("forge")) != null) {
             return new ModLoader(ModLoader.MOD_LOADER_FORGE, modLoaderVersion, mcVersion);
         }
+        if((modLoaderVersion = dependencies.get("neoforge")) != null) {
+            return new ModLoader(ModLoader.MOD_LOADER_NEOFORGE, modLoaderVersion, mcVersion);
+        }
+        if((modLoaderVersion = dependencies.get("babric")) != null) {
+            return new ModLoader(ModLoader.MOD_LOADER_BABRIC, modLoaderVersion, mcVersion);
+        }
         if((modLoaderVersion = dependencies.get("fabric-loader")) != null) {
+            if(FabriclikeUtils.isBabricGameVersion(mcVersion)) return new ModLoader(ModLoader.MOD_LOADER_BABRIC, modLoaderVersion, mcVersion);
+            if(mcVersion.startsWith("1.0.0-beta.")) return new ModLoader(ModLoader.MOD_LOADER_BTA_BABRIC, modLoaderVersion, mcVersion);
             return new ModLoader(ModLoader.MOD_LOADER_FABRIC, modLoaderVersion, mcVersion);
+        }
+        if((modLoaderVersion = dependencies.get("bta-babric")) != null) {
+            return new ModLoader(ModLoader.MOD_LOADER_BTA_BABRIC, modLoaderVersion, mcVersion);
         }
         if((modLoaderVersion = dependencies.get("quilt-loader")) != null) {
             return new ModLoader(ModLoader.MOD_LOADER_QUILT, modLoaderVersion, mcVersion);

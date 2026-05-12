@@ -12,6 +12,7 @@ import com.kdt.mcgui.ProgressLayout;
 
 import net.kdt.pojavlaunch.R;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.modloaders.FabriclikeUtils;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.Constants;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.CurseManifest;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.ModDetail;
@@ -209,11 +210,24 @@ public class CurseforgeApi implements ModpackApi{
                 modLoaderTypeInt = ModLoader.MOD_LOADER_FORGE;
                 break;
             case "fabric":
-                modLoaderTypeInt = ModLoader.MOD_LOADER_FABRIC;
+                if(FabriclikeUtils.isBabricGameVersion(minecraft.version)) modLoaderTypeInt = ModLoader.MOD_LOADER_BABRIC;
+                else if(minecraft.version.startsWith("1.0.0-beta.")) modLoaderTypeInt = ModLoader.MOD_LOADER_BTA_BABRIC;
+                else modLoaderTypeInt = ModLoader.MOD_LOADER_FABRIC;
+                break;
+            case "quilt":
+                modLoaderTypeInt = ModLoader.MOD_LOADER_QUILT;
+                break;
+            case "babric":
+                modLoaderTypeInt = ModLoader.MOD_LOADER_BABRIC;
+                break;
+            case "bta-babric":
+                modLoaderTypeInt = ModLoader.MOD_LOADER_BTA_BABRIC;
+                break;
+            case "neoforge":
+                modLoaderTypeInt = ModLoader.MOD_LOADER_NEOFORGE;
                 break;
             default:
                 return null;
-            //TODO: Quilt is also Forge? How does that work?
         }
         return new ModLoader(modLoaderTypeInt, modLoaderVersion, minecraft.version);
     }

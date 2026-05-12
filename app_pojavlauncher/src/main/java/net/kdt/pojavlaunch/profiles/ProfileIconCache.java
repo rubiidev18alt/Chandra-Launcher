@@ -84,7 +84,10 @@ public class ProfileIconCache {
         switch (icon) {
             case "default": return R.drawable.ic_pojav_full;
             case "fabric": return R.drawable.ic_fabric;
-            case "quilt": return R.drawable.ic_quilt;
+            case "babric": return R.drawable.ic_babric;
+            case "bta_babric": return R.drawable.ic_bta_babric;
+            case "quilt": return R.drawable.ic_quilt_squares;
+            case "neoforge": return R.drawable.ic_neoforge_fox;
             default: return -1;
         }
     }

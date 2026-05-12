@@ -8,6 +8,7 @@ import net.kdt.pojavlaunch.modloaders.FabriclikeDownloadTask;
 import net.kdt.pojavlaunch.modloaders.FabriclikeUtils;
 import net.kdt.pojavlaunch.modloaders.ForgeDownloadTask;
 import net.kdt.pojavlaunch.modloaders.ForgeUtils;
+import net.kdt.pojavlaunch.modloaders.NeoForgeDownloadTask;
 import net.kdt.pojavlaunch.modloaders.ModloaderDownloadListener;
 
 import java.io.File;
@@ -16,6 +17,9 @@ public class ModLoader {
     public static final int MOD_LOADER_FORGE = 0;
     public static final int MOD_LOADER_FABRIC = 1;
     public static final int MOD_LOADER_QUILT = 2;
+    public static final int MOD_LOADER_NEOFORGE = 3;
+    public static final int MOD_LOADER_BABRIC = 4;
+    public static final int MOD_LOADER_BTA_BABRIC = 5;
     public final int modLoaderType;
     public final String modLoaderVersion;
     public final String minecraftVersion;
@@ -38,6 +42,12 @@ public class ModLoader {
                 return "fabric-loader-"+modLoaderVersion+"-"+minecraftVersion;
             case MOD_LOADER_QUILT:
                 return "quilt-loader-"+modLoaderVersion+"-"+minecraftVersion;
+            case MOD_LOADER_NEOFORGE:
+                return "neoforge-"+modLoaderVersion;
+            case MOD_LOADER_BABRIC:
+                return "babric-loader-"+modLoaderVersion+"-"+minecraftVersion;
+            case MOD_LOADER_BTA_BABRIC:
+                return "bta-babric-loader-"+modLoaderVersion+"-"+minecraftVersion;
             default:
                 return null;
         }
@@ -53,10 +63,16 @@ public class ModLoader {
         switch (modLoaderType) {
             case MOD_LOADER_FORGE:
                 return new ForgeDownloadTask(listener, minecraftVersion, modLoaderVersion);
+            case MOD_LOADER_NEOFORGE:
+                return new NeoForgeDownloadTask(listener, modLoaderVersion);
             case MOD_LOADER_FABRIC:
                 return createFabriclikeTask(listener, FabriclikeUtils.FABRIC_UTILS);
             case MOD_LOADER_QUILT:
                 return createFabriclikeTask(listener, FabriclikeUtils.QUILT_UTILS);
+            case MOD_LOADER_BABRIC:
+                return createFabriclikeTask(listener, FabriclikeUtils.BABRIC_UTILS);
+            case MOD_LOADER_BTA_BABRIC:
+                return createFabriclikeTask(listener, FabriclikeUtils.BTA_BABRIC_UTILS);
             default:
                 return null;
         }
@@ -75,6 +91,7 @@ public class ModLoader {
         Intent baseIntent = new Intent(context, JavaGUILauncherActivity.class);
         switch (modLoaderType) {
             case MOD_LOADER_FORGE:
+            case MOD_LOADER_NEOFORGE:
                 ForgeUtils.addAutoInstallArgs(baseIntent, modInstallerJar, getVersionId());
                 return baseIntent;
             case MOD_LOADER_QUILT:
@@ -91,9 +108,12 @@ public class ModLoader {
     public boolean requiresGuiInstallation() {
         switch (modLoaderType) {
             case MOD_LOADER_FORGE:
+            case MOD_LOADER_NEOFORGE:
                 return true;
             case MOD_LOADER_FABRIC:
             case MOD_LOADER_QUILT:
+            case MOD_LOADER_BABRIC:
+            case MOD_LOADER_BTA_BABRIC:
             default:
                 return false;
         }
