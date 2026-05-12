@@ -4,6 +4,8 @@
     <string name="app_name">Chandra Launcher (Minecraft: Java Edition for Android)</string>
     <string name="app_short_name">Chandra Launcher</string>
 
+    <string name="launcher_tagline">A purple galaxy for your Java worlds</string>
+
     <!-- Action bar part -->
 
     <!-- Languages list part -->
@@ -298,14 +300,20 @@
     <string name="modloader_dl_failed_to_load_list">Failed to load the version list!</string>
     <string name="forge_dl_no_installer">Sorry, but this version of Forge does not have an installer, which is not yet supported.</string>
     <string name="forge_dl_select_version">Select Forge version</string>
+    <string name="neoforge_dl_progress">Downloading installer for NeoForge %s</string>
+    <string name="neoforge_dl_no_installer">Sorry, but this NeoForge version does not have an installer.</string>
+    <string name="neoforge_dl_select_version">Select NeoForge version</string>
     <string name="fabric_dl_progress">Downloading %s loader metadata</string>
     <string name="fabric_dl_loader_version">%s loader version</string>
     <string name="fabric_dl_game_version">Minecraft version</string>
     <string name="fabric_dl_install">Install</string>
     <string name="fabric_dl_cant_read_meta">Failed to read %s loader metadata. Please try again later.</string>
     <string name="modloader_dl_install_fabric">Create Fabric profile</string>
+    <string name="modloader_dl_install_babric">Create Babric profile</string>
+    <string name="modloader_dl_install_bta_babric">Create BTA Babric profile</string>
     <string name="modloader_dl_install_quilt">Create Quilt profile</string>
     <string name="modloader_dl_install_forge">Create Forge profile</string>
+    <string name="modloader_dl_install_neoforge">Create NeoForge profile</string>
     <string name="create_profile_vanilla">Create vanilla profile</string>
     <string name="create_profile_vanilla_like_versions">Vanilla-like versions</string>
     <string name="create_profile_modded_versions">Modded versions</string>

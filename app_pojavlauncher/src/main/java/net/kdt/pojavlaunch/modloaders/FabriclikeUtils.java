@@ -14,9 +14,21 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class FabriclikeUtils {
+    private static final String[] BABRIC_GAME_VERSIONS = {
+            "b1.7.3", "b1.7.2", "b1.7",
+            "b1.6.6", "b1.6.5", "b1.6.4", "b1.6.3", "b1.6.2", "b1.6.1", "b1.6",
+            "b1.5_01", "b1.5",
+            "b1.4_01", "b1.4",
+            "b1.3_01", "b1.3",
+            "b1.2_02", "b1.2_01", "b1.2",
+            "b1.1_02", "b1.1",
+            "b1.0"
+    };
 
     public static final FabriclikeUtils FABRIC_UTILS = new FabriclikeUtils("https://meta.fabricmc.net/v2", "fabric", "Fabric", "fabric");
     public static final FabriclikeUtils QUILT_UTILS = new FabriclikeUtils("https://meta.quiltmc.org/v3", "quilt", "Quilt", "quilt");
+    public static final FabriclikeUtils BABRIC_UTILS = new FabriclikeUtils("https://meta.babric.glass-launcher.net/v2", "babric", "Babric", "babric", createGameVersions(BABRIC_GAME_VERSIONS));
+    public static final FabriclikeUtils BTA_BABRIC_UTILS = new FabriclikeUtils("https://meta.babric.glass-launcher.net/v2", "bta_babric", "BTA Babric", "bta_babric", createSingleGameVersion("1.0.0-beta.7.3"));
 
     private static final String LOADER_METADATA_URL = "%s/versions/loader/%s";
     private static final String GAME_METADATA_URL = "%s/versions/game";
@@ -27,15 +39,44 @@ public class FabriclikeUtils {
     private final String mCachePrefix;
     private final String mName;
     private final String mIconName;
+    private final FabricVersion[] mFixedGameVersions;
 
     private FabriclikeUtils(String mApiUrl, String cachePrefix, String mName, String iconName) {
+        this(mApiUrl, cachePrefix, mName, iconName, null);
+    }
+
+    private FabriclikeUtils(String mApiUrl, String cachePrefix, String mName, String iconName, FabricVersion[] fixedGameVersions) {
         this.mApiUrl = mApiUrl;
         this.mCachePrefix = cachePrefix;
         this.mIconName = iconName;
         this.mName = mName;
+        this.mFixedGameVersions = fixedGameVersions;
+    }
+
+    private static FabricVersion[] createSingleGameVersion(String version) {
+        return createGameVersions(version);
+    }
+
+    private static FabricVersion[] createGameVersions(String... versions) {
+        FabricVersion[] fabricVersions = new FabricVersion[versions.length];
+        for(int i = 0; i < versions.length; i++) {
+            FabricVersion fabricVersion = new FabricVersion();
+            fabricVersion.version = versions[i];
+            fabricVersion.stable = true;
+            fabricVersions[i] = fabricVersion;
+        }
+        return fabricVersions;
+    }
+
+    public static boolean isBabricGameVersion(String gameVersion) {
+        for(String babricGameVersion : BABRIC_GAME_VERSIONS) {
+            if(babricGameVersion.equals(gameVersion)) return true;
+        }
+        return false;
     }
 
     public FabricVersion[] downloadGameVersions() throws IOException{
+        if(mFixedGameVersions != null) return mFixedGameVersions;
         try {
             return DownloadUtils.downloadStringCached(String.format(GAME_METADATA_URL, mApiUrl), mCachePrefix+"_game_versions",
                     FabriclikeUtils::deserializeRawVersions
