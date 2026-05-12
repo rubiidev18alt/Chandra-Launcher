@@ -1,6 +1,6 @@
-<h1 align="center">PojavLauncher</h1>
+<h1 align="center">Chandra Launcher</h1>
 
-<img src="https://github.com/PojavLauncherTeam/PojavLauncher/blob/v3_openjdk/app_pojavlauncher/src/main/assets/pojavlauncher.png" align="left" width="130" height="150" alt="PojavLauncher logo">
+<img src="https://github.com/PojavLauncherTeam/PojavLauncher/blob/v3_openjdk/app_pojavlauncher/src/main/assets/pojavlauncher.png" align="left" width="130" height="150" alt="Chandra Launcher logo">
 
 [![Android CI](https://github.com/PojavLauncherTeam/PojavLauncher/workflows/Android%20CI/badge.svg)](https://github.com/PojavLauncherTeam/PojavLauncher/actions)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/PojavLauncherTeam/PojavLauncher)](https://github.com/PojavLauncherTeam/PojavLauncher/actions)
@@ -8,20 +8,20 @@
 [![Discord](https://img.shields.io/discord/724163890803638273.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/aenk3EUvER)
 [![Twitter Follow](https://img.shields.io/twitter/follow/plaunchteam?color=blue&style=flat-square)](https://twitter.com/PLaunchTeam)
 
-*From [Boardwalk](https://github.com/zhuowei/Boardwalk)'s ashes here comes PojavLauncher!*
+*From [Boardwalk](https://github.com/zhuowei/Boardwalk)'s ashes here comes Chandra Launcher!*
 
-PojavLauncher is a launcher that allows you to play Minecraft: Java Edition on your Android and [iOS](https://github.com/PojavLauncherTeam/PojavLauncher_iOS) devices.
+Chandra Launcher is a launcher that allows you to play Minecraft: Java Edition on your Android and [iOS](https://github.com/PojavLauncherTeam/PojavLauncher_iOS) devices.
 
 For more details, check out our [wiki](https://pojavlauncher.app/)!
 
 ## Important Notes
 
-**PojavLauncher has been discontinued** and is no longer supported. Its successor is available [here](https://github.com/AngelAuraMC/Amethyst-Android).
+**Chandra Launcher has been discontinued** and is no longer supported. Its successor is available [here](https://github.com/AngelAuraMC/Amethyst-Android).
 
 ## Table of Contents
 
 * [Introduction](#introduction)
-* [Getting PojavLauncher](#getting-pojavlauncher)
+* [Getting Chandra Launcher](#getting-pojavlauncher)
 * [Building](#building)
     * [Quick Build (Recommended)](#quick-build-recommended)
     * [Detailed Build](#detailed-build)
@@ -36,14 +36,14 @@ For more details, check out our [wiki](https://pojavlauncher.app/)!
 
 ## Introduction
 
-* PojavLauncher is a Minecraft: Java Edition launcher for Android and iOS based on [Boardwalk](https://github.com/zhuowei/Boardwalk)
+* Chandra Launcher is a Minecraft: Java Edition launcher for Android and iOS based on [Boardwalk](https://github.com/zhuowei/Boardwalk)
 * This launcher can launch almost all available Minecraft versions ranging from rd-132211 to 1.21 snapshots (including Combat Test versions)
 * Modding via Forge and Fabric are also supported.
-* This repository contains source code for Android. For iOS/iPadOS, check out [PojavLauncher_iOS](https://github.com/PojavLauncherTeam/PojavLauncher_iOS).
+* This repository contains source code for Android. For iOS/iPadOS, check out [Chandra Launcher_iOS](https://github.com/PojavLauncherTeam/PojavLauncher_iOS).
 
-## Getting PojavLauncher
+## Getting Chandra Launcher
 
-You can get PojavLauncher via three methods:
+You can get Chandra Launcher via three methods:
 
 1. **Releases:** Download the prebuilt app from our [stable releases](https://github.com/PojavLauncherTeam/PojavLauncher/releases) or [automatic builds](https://github.com/PojavLauncherTeam/PojavLauncher/actions).
 2. **Google Play:** Get it from Google Play by clicking on this badge: [![Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=net.kdt.pojavlaunch)
@@ -53,7 +53,7 @@ You can get PojavLauncher via three methods:
 
 ### Quick Build (Recommended)
 
-The easiest way to build PojavLauncher is to use the pre-built JREs provided by our CI.
+The easiest way to build Chandra Launcher is to use the pre-built JREs provided by our CI.
 
 1. Clone the repository: `git clone https://github.com/PojavLauncherTeam/PojavLauncher.git`
 2. Build the launcher: `./gradlew :app_pojavlauncher:assembleDebug` (Use `gradlew.bat` on Windows)
@@ -120,7 +120,7 @@ For support, please join our [Discord server](https://discord.com/invite/aenk3EU
 
 ## License
 
-PojavLauncher is licensed under [GNU LGPLv3](https://github.com/PojavLauncherTeam/PojavLauncher/blob/v3_openjdk/LICENSE).
+Chandra Launcher is licensed under [GNU LGPLv3](https://github.com/PojavLauncherTeam/PojavLauncher/blob/v3_openjdk/LICENSE).
 
 ## Credits & Dependencies
 
